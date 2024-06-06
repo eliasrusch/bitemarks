@@ -18,7 +18,7 @@ function gen_id(str)
 		id = id .. tostring(string.byte(char))
 	end
 
-	return id
+	return tonumber(id)
 end
 
 function M.mark(mark)
