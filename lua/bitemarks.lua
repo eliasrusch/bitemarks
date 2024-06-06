@@ -23,8 +23,8 @@ function M.mark(mark)
   vim.api.nvim_buf_set_extmark(buffer_id, namespace_id, line_number, col, {
     id = id,
     virt_text = { { "'" .. mark, "ByteMarks" } },
-    virt_text_pos = "inline",
-    -- virt_text_win_col = -6,
+    virt_text_pos = "eol",
+    
   })
 
   vim.api.nvim_feedkeys("m" .. mark, "n", true)
