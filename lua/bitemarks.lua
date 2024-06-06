@@ -18,7 +18,7 @@ function M.mark(mark)
   local buffer_id = vim.api.nvim_get_current_buf()
   local win_id = vim.api.nvim_get_current_win()
   local line_number = vim.api.nvim_win_get_cursor(win_id)[1] - 1
-  local col = 0
+  local col = 5
   vim.api.nvim_buf_del_extmark(buffer_id, namespace_id, id)
   vim.api.nvim_buf_set_extmark(buffer_id, namespace_id, line_number, col, {
     id = id,
