@@ -1,7 +1,22 @@
 local M = {}
 
+local function get_highlight(group, attr) 
+  local hl = vim.api.nvim_get_hl_by_name(group, true)
+  if hl[attr] then
+    return string.format("#%06x", hl[attr])
+  end
+end
+
+local function set_highlight(group, ref_group, attr)
+  local color = get_highlight(ref_group, attr)
+  if color then
+    vim.cmd(string.format("highlight %s guifg=%s", group, color))
+  end
+end
+
 function M.init_highlight_group()
-	vim.api.nvim_command("highlight default BiteMarks guifg=#cba6f7")
+  set_highlight("BiteMarks", "Identifier", "foreground")
+	-- vim.api.nvim_command("highlight default BiteMarks guifg=#cba6f7")
 	namespace_id = vim.api.nvim_create_namespace("BiteMarks")
 end
 
