@@ -15,7 +15,7 @@ local function set_highlight(group, ref_group, attr)
 end
 
 function M.init_highlight_group()
-  set_highlight("BiteMarks", "Identifier", "foreground")
+  set_highlight("BiteMarks", "Keyword", "foreground")
 	-- vim.api.nvim_command("highlight default BiteMarks guifg=#cba6f7")
 	namespace_id = vim.api.nvim_create_namespace("BiteMarks")
 end
