@@ -8,7 +8,7 @@ end
 function M.run_autocommands()
   vim.api.nvim_command("augroup ByteMarks")
   vim.api.nvim_command("autocmd!")
-  vim.api.nvim_command("autocmd ColorScheme * lua require'bytemarks'.init_highlight_group()")
+  vim.api.nvim_command("autocmd ColorScheme * lua require'bitemarks'.init_highlight_group()")
   vim.api.nvim_command("augroup end")
 end
 
@@ -31,9 +31,9 @@ function M.mark(mark)
 end
 
 function M.setup()
-  require("bytemarks").init_highlight_group()
-  require("bytemarks").run_autocommands()
-  vim.keymap.set("n", "m", "<cmd>lua require'bytemarks'.mark(vim.fn.getcharstr())<CR>")
+  require("bitemarks").init_highlight_group()
+  require("bitemarks").run_autocommands()
+  vim.keymap.set("n", "m", "<cmd>lua require'bitemarks'.mark(vim.fn.getcharstr())<CR>")
 end
 
 return M
