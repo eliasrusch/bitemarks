@@ -35,8 +35,8 @@ function M.mark(mark)
 
 	vim.api.nvim_buf_set_extmark(buffer_id, namespace_id, line_number, col, {
 		id = id1,
-		virt_text = { { tostring(line_number), "BiteMarks" } },
-		virt_text_win_col = -(string.len(tostring(line_number)) + 1),
+		virt_text = { { tostring(line_number+1), "BiteMarks" } },
+		virt_text_win_col = -(string.len(tostring(line_number+1)) + 1),
 		priority = 100,
 	})
 
