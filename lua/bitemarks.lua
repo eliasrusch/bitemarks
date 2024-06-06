@@ -26,17 +26,17 @@ function M.mark(mark)
 
   vim.api.nvim_buf_set_extmark(buffer_id, namespace_id, line_number, col, {
     id = id1,
-    virt_text = { { "*", "BiteMarks" } },
-    virt_text_win_col = 0,
+    virt_text = { { line_number, "BiteMarks" } },
+    virt_text_win_col = -3,
     priority = 100,
   })
 
-  -- vim.api.nvim_buf_set_extmark(buffer_id, namespace_id, line_number, col, {
-  --   id = id2,
-  --   virt_text = { { "'" .. mark .. "     ", "BiteMarks" } },
-  --   virt_text_pos = "right_align",
-  --   priority = 100
-  -- })
+  vim.api.nvim_buf_set_extmark(buffer_id, namespace_id, line_number, col, {
+    id = id2,
+    virt_text = { { "'" .. mark .. "     ", "BiteMarks" } },
+    virt_text_pos = "right_align",
+    priority = 100
+  })
 
   vim.api.nvim_feedkeys("m" .. mark, "n", true)
 end
