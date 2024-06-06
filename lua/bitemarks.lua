@@ -12,9 +12,18 @@ function M.run_autocommands()
 	vim.api.nvim_command("augroup end")
 end
 
+function gen_id(str)
+	local id = ""
+	for char in str:gmatch(".") do
+		id = id .. tostring(string.byte(char))
+	end
+
+	return id
+end
+
 function M.mark(mark)
-	local id1 = string.byte(mark .. "*")
-	local id2 = string.byte(mark .. "'")
+	local id1 = gen_id(mark .. "*")
+	local id2 = gen_id(mark .. "'")
 
 	local buffer_id = vim.api.nvim_get_current_buf()
 	local win_id = vim.api.nvim_get_current_win()
