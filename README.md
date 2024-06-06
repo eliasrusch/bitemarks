@@ -8,6 +8,9 @@ Bitemarks is a simple plugin that adds indicators for every marks created.
 
 ```lua
 {
-    "eliasrusch/bitemarks"
+    "eliasrusch/bitemarks",
+    config = function()
+        require("bitemarks").setup()
+    end
 }
 ```
